@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\KategoriBuah;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Buah extends Model
 {
@@ -14,5 +15,14 @@ class Buah extends Model
     protected $fillable = [
         'nama',
         'stok',
+        'kategori_buah_id',
     ];
+
+    protected $hidden = ['created_at', 'updated_at'];
+
+
+    public function kategori()
+    {
+        return $this->belongsTo(KategoriBuah::class, 'kategori_buah_id');
+    }
 }
