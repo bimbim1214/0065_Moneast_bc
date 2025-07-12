@@ -11,8 +11,10 @@ class BuahController extends Controller
     // GET /api/buah
     public function index()
     {
-        return response()->json(Buah::all(), 200);
+        $buah = Buah::with('kategori')->get();
+        return response()->json($buah, 200);
     }
+    
 
     // POST /api/buah
     public function store(StoreBuahRequest $request)
