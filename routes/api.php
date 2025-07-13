@@ -25,4 +25,9 @@ Route::apiResource('kategori-buah', KategoriBuahController::class);
 Route::apiResource('suppliers', SupplierController::class);
 // Route::apiResource('pembelianbuah', PembelianBuahController::class);
 
-
+Route::post('pembelianbuah', [PembelianBuahController::class, 'store']);
+Route::get('/pembelianbuah', [PembelianBuahController::class, 'index']);
+Route::post('/pembelianbuah', [PembelianBuahController::class, 'store']);
+Route::get('/pembelianbuah/{id}', [PembelianBuahController::class, 'show']);
+Route::put('/pembelianbuah/{id}', [PembelianBuahController::class, 'update']);
+Route::delete('/pembelianbuah/{id}', [PembelianBuahController::class, 'destroy']);
